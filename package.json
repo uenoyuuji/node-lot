@@ -7,10 +7,13 @@
     "pretest": "npm install",
     "test": "./node_modules/jasmine-node/bin/jasmine-node spec"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/uenoyuuji/node-lot.git"
+  },
   "author": "UENO Yuuji",
   "license": "BSD",
-  "dependencies": {
+  "devDependencies": {
     "jasmine-node": "~1.4.0"
   }
 }
