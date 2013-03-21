@@ -1,0 +1,16 @@
+{
+  "name": "lot",
+  "version": "0.0.1",
+  "description": "The random functions like lot drawing.",
+  "main": "lot.js",
+  "scripts": {
+    "pretest": "npm install",
+    "test": "./node_modules/jasmine-node/bin/jasmine-node spec"
+  },
+  "repository": "",
+  "author": "UENO Yuuji",
+  "license": "BSD",
+  "dependencies": {
+    "jasmine-node": "~1.4.0"
+  }
+}
