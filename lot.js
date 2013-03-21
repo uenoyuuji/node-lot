@@ -1,6 +1,6 @@
 /**
  * Returns true if you won.
- * @param {String} total
+ * @param {Number} total
  * @return {Boolean} true if you won
  * @example
  * require('lot').draw(10); // returns true 1/10 of the time.
@@ -10,7 +10,7 @@ exports.draw = function(total) {
 };
 
 /**
- * @param {String} total
+ * @param {Number} total
  * @example
  * var lot = Lot(100);
  * for(var i = 0; i < 100; i++) {
