@@ -62,6 +62,18 @@ describe('lot', function() {
             it('should return false if the object initialized with -1', function() {
                 expect(lot.Lot(-1).draw()).toBe(false);
             });
+
+            it('should return just 1 true in given times if the argument is greater than 2', function() {
+                var total = 100;
+                var l = lot.Lot(total);
+                var falseCount = 0;
+                for(var i = 0; i < total; i++) {
+                    if(!l.draw()) {
+                        falseCount++;
+                    }
+                }
+                expect(falseCount).toBe(total - 1);
+            });
         });
 
         describe('reset', function() {
@@ -75,9 +87,22 @@ describe('lot', function() {
             });
 
             it('should initialize the object again with 0', function() {
+                var l = lot.Lot(0);
+                expect(l.draw()).toBe(false);
+                l.reset();
+                expect(l.draw()).toBe(false);
+            });
+
+            it('should be able to initialize the unused object', function() {
                 var l = lot.Lot(1);
+                l.reset();
                 expect(l.draw()).toBe(true);
                 expect(l.draw()).toBe(false);
+            });
+
+            it('should be able to initialize the used object', function() {
+                var l = lot.Lot(1);
+                expect(l.draw()).toBe(true);
                 l.reset();
                 expect(l.draw()).toBe(true);
                 expect(l.draw()).toBe(false);
