@@ -25,26 +25,32 @@ exports.Lot = function(total) {
     F.prototype = exports.Lot.prototype;
     var f = new F;
 
-    f.total = total;
+    if(total < 0) {
+        total = 0;
+    }
+    Object.defineProperty(f, "total", {
+        value: total
+    });
+    Object.defineProperty(f, "array", {
+        value: [],
+        writable: true
+    });
     f.reset();
 
     return f;
 };
 exports.Lot.prototype = {
-    current: null,
-    total: null,
     /**
      * Returns true if you won. But if you already drew a winning ticket from the lot, it always returns false.
      * @return {Boolean} true if you won
      */
     draw: function() {
-        var win = exports.draw(this.current);
-        if(this.current > 0) {
-            this.current--;
-        }
-        return win;
+        return this.array.length > 0 ? !!this.array.splice(Math.floor(this.array.length * Math.random()), 1)[0] : false;
     },
     reset: function() {
-        this.current = this.total;
+        this.array = new Array(this.total);
+        if(this.total > 0) {
+            this.array[Math.floor(this.array.length * Math.random())] = true;
+        }
     }
 };
