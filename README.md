@@ -22,7 +22,9 @@ Object
 ----------
 
 ```JavaScript
-var lot = new (require('lot').Lot)(100);
-lot.draw(); // Returns true in 1/100
-lot.draw(); // If you've already got true, `lot` always returns false. Or else it returns true in 1/99
+var myLot = new (require('lot').Lot)(100);
+myLot.draw(); // Returns true in 1/100
+myLot.draw(); // If you've already got true, `myLot` always returns false. Or else it returns true in 1/99
+myLot.reset() // Reset a state of the object `myLot`
+myLot.draw(); // Returns true in 1/100
 ```
